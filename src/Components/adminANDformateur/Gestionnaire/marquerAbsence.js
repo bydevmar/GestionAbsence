@@ -197,4 +197,4 @@ import foto9 from '../../Resources/foto9.jpg'
     }
 }
 
-export default MarquerAbsence;S
+export default MarquerAbsence;
