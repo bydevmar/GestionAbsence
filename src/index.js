@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom'
 import { Provider} from 'react-redux'
-import App from './components/SearchBarandFooter/Middle'
+import Main from './Components/SearchBarandFooter/Middle/main.js'
 import { createStore } from 'redux'
 import reducer from './reducers/rootReducer'
 
@@ -9,4 +9,4 @@ const store = createStore(reducer)
 
 
 
-ReactDOM.render(<Provider store ={store}><App/></Provider>,document.getElementById("root"));
+ReactDOM.render(<Provider store ={store}><Main/></Provider>,document.getElementById("root"));

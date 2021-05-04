@@ -5,7 +5,7 @@ export default class AbsenceMarque extends Component {
      
     constructor(props){
         super(props)
-        if(this.props.location.state === undefined){
+        if(this.props.location.state == undefined){
             this.props.history.push('/gestionnaire')
         }
         else{

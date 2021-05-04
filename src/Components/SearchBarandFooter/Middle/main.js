@@ -6,7 +6,7 @@ import NavBar from '../SearchBar';
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
  
-class App extends Component {
+class Main extends Component {
     constructor(props){
         super(props)
         this.props.readCookie();
@@ -38,4 +38,4 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-export default connect(mapStateToProps , mapDispatchToProps)(App);
+export default connect(mapStateToProps , mapDispatchToProps)(Main);

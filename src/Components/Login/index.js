@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+//import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Cookies from 'js-cookie'
@@ -125,7 +125,7 @@ class Login extends Component {
                             paddingTop:'20px'}}  
                     >
                     <Avatar style={{backgroundColor: "gray"}}>
-                    <LockOutlinedIcon />
+                    {/*<LockOutlinedIcon />*/}
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Se Connecter

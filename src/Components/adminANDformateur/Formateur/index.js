@@ -209,7 +209,7 @@ class Formateur extends Component {
                                         onChange={this.handleChange}
                                        
                                         />
-                                </Table.Cell> <h3
+                                </Table.Cell>
                             </Table.Row>
                             <Table.Row>
                                 <Table.Cell colSpan='4'>

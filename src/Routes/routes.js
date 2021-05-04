@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { Route  , Switch} from 'react-router-dom'
-import Home from '../components/SearchBarandFooter/SearchBar/Home'
-import Login from '../components/Login'
-import Formateur from '../components/GestionAbsence/Formateur'
-import MA from '../components/GestionAbsence/Formateur/ma.js'
-import Gestionnaire from '../components/GestionAbsence/Gestionnaire'
-import MarquerAbsence from '../components/GestionAbsence/Gestionnaire/marquerAbsence'
-import absenceMarque from '../components/GestionAbsence/Gestionnaire/absenceMarque'
-import Contact from '../components/SearchBarandFooter/SearchBar/Contact'
-
+import Home from '../Components/SearchBarandFooter/SearchBar/Home'
+import Login from '../Components/Login'
+import Formateur from '../Components/adminANDformateur/Formateur'
+import MA from '../Components/adminANDformateur/Formateur/ma.js'
+import Gestionnaire from '../Components/adminANDformateur//Gestionnaire'
+import MarquerAbsence from '../Components/adminANDformateur//Gestionnaire/marquerAbsence'
+import absenceMarque from '../Components/adminANDformateur/Gestionnaire/absenceMarque'
+//import Contact from '../Components/SearchBarandFooter/SearchBar/Contact'
+//<Route path="/contact" exact component={Contact} />
 
 
  function Routes() {
@@ -22,7 +22,7 @@ import Contact from '../components/SearchBarandFooter/SearchBar/Contact'
                 <Route path="/mabsence" exact component={MarquerAbsence} />
                 <Route path="/amarque" exact component={absenceMarque} />
                 <Route path="/ma" exact component={MA} />
-                <Route path="/contact" exact component={Contact} />
+                
                 <Route path="*" exact component={Home} />
             </Switch>
         </div>
