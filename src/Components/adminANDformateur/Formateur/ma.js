@@ -46,7 +46,7 @@ export default class MA extends Component {
             body: formdata,
             redirect: 'follow'
             };
-            fetch("http://localhost:3001/backend/absences/", requestOptions)
+            fetch("http://localhost/backend/absences/", requestOptions)
             .then(response => response.text())
             .then(result => {
                 if((JSON.parse(result)).status === "OK"){

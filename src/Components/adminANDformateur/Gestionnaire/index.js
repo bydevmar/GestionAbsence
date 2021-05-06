@@ -38,7 +38,7 @@ class Gestionnaire extends Component {
         }
     }
     checkApiAbcenses = () =>{
-        fetch("http://localhost:3001/backend/absences/?token="+this.props.Hash, {
+        fetch("http://localhost/backend/absences/?token="+this.props.Hash, {
             method: 'GET',
             redirect: 'follow'
             })
@@ -64,7 +64,7 @@ class Gestionnaire extends Component {
 
     }
     checkApiFormayeurs = () => {
-        fetch("http://localhost:3001/backend/formateurs/?token="+ this.props.Hash , {
+        fetch("http://localhost/backend/formateurs/?token="+ this.props.Hash , {
             method: 'GET',
             redirect: 'follow',
         })
@@ -92,7 +92,7 @@ class Gestionnaire extends Component {
       .catch(error => console.log('error', error));
     }
     checkApiGroupes = (SELECTEDFORMATEURHash) => {
-        fetch("http://localhost:3001/backend/groupes/?token="+ SELECTEDFORMATEURHash, {
+        fetch("http://localhost/backend/groupes/?token="+ SELECTEDFORMATEURHash, {
             method: 'GET',
             redirect: 'follow',
           })
@@ -125,7 +125,7 @@ class Gestionnaire extends Component {
             method: 'GET',
             redirect: 'follow'
           };
-          fetch("http://localhost:3001/backend/stagiaires/?token="+this.state.SELECTEDFORMATEURHash+"&groupe="+sg, requestOptions)
+          fetch("http://localhost/backend/stagiaires/?token="+this.state.SELECTEDFORMATEURHash+"&groupe="+sg, requestOptions)
             .then(response => response.text())
             .then(result => {
                 Cookies.remove("stagiaires") 

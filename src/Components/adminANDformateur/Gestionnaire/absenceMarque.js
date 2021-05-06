@@ -36,7 +36,7 @@ export default class AbsenceMarque extends Component {
     }
     checkApiAbcenses = () =>{
         if(this.checkinfos()){
-            fetch("http://localhost:3001/backend/absences/?token="+this.state.HashG, {
+            fetch("http://localhost/backend/absences/?token="+this.state.HashG, {
             method: 'GET',
             redirect: 'follow'
             })

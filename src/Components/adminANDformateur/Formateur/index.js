@@ -32,7 +32,7 @@ class Formateur extends Component {
         }
     }
     checkApiAbcenses = () =>{
-        fetch("http://localhost:3001/backend/absences/?token="+this.props.Hash, {
+        fetch("http://localhost/backend/absences/?token="+this.props.Hash, {
             method: 'GET',
             redirect: 'follow'
             })
@@ -59,7 +59,7 @@ class Formateur extends Component {
     }
     
     checkApiGroupes = () => {
-        fetch("http://localhost:3001/backend/groupes/?token="+ this.props.Hash, {
+        fetch("http://localhost/backend/groupes/?token="+ this.props.Hash, {
             method: 'GET',
             redirect: 'follow',
           })
@@ -92,7 +92,7 @@ class Formateur extends Component {
             method: 'GET',
             redirect: 'follow'
           };
-          fetch("http://localhost:3001/backend/stagiaires/?token="+this.props.Hash+"&groupe="+sg, requestOptions)
+          fetch("http://localhost/backend/stagiaires/?token="+this.props.Hash+"&groupe="+sg, requestOptions)
             .then(response => response.text())
             .then(result => {
                 Cookies.remove("stagiaires") 

@@ -73,7 +73,7 @@ class Login extends Component {
             body: formdata,
             redirect: 'follow'
             };
-            fetch("http://localhost:3001/backend/utilisateurs/", requestOptions)
+            fetch("http://localhost/backend/utilisateurs/", requestOptions)
             .then(response => response.text() )
             .then(result => {
                 const jsonObject = JSON.parse(result);

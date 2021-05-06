@@ -46,7 +46,7 @@ import foto9 from '../../Resources/foto9.jpg'
     checkApiAbcenses = () =>{
         console.log("checkApiAbcenses");
         if(this.checkinfos() === true ){
-            fetch("http://localhost:3001/backend/absences/?token="+this.state.HashG, {
+            fetch("http://localhost/backend/absences/?token="+this.state.HashG, {
             method: 'GET',
             redirect: 'follow'
             })
@@ -101,7 +101,7 @@ import foto9 from '../../Resources/foto9.jpg'
             body: formdata,
             redirect: 'follow'
             };
-            fetch("http://localhost:3001/backend/absences/", requestOptions)
+            fetch("http://localhost/backend/absences/", requestOptions)
             .then(response => response.text())
             .then(result => {
                 if((JSON.parse(result)).status === "OK"){

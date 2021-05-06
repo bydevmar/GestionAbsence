@@ -7,8 +7,8 @@ import MA from '../Components/adminANDformateur/Formateur/ma.js'
 import Gestionnaire from '../Components/adminANDformateur//Gestionnaire'
 import MarquerAbsence from '../Components/adminANDformateur//Gestionnaire/marquerAbsence'
 import absenceMarque from '../Components/adminANDformateur/Gestionnaire/absenceMarque'
-//import Contact from '../Components/SearchBarandFooter/SearchBar/Contact'
-//<Route path="/contact" exact component={Contact} />
+import Contact from '../Components/SearchBarandFooter/SearchBar/Contact'
+
 
 
  function Routes() {
@@ -22,6 +22,7 @@ import absenceMarque from '../Components/adminANDformateur/Gestionnaire/absenceM
                 <Route path="/mabsence" exact component={MarquerAbsence} />
                 <Route path="/amarque" exact component={absenceMarque} />
                 <Route path="/ma" exact component={MA} />
+                <Route path="/contact" exact component={Contact} />
                 
                 <Route path="*" exact component={Home} />
             </Switch>
