@@ -5,11 +5,10 @@ export default class AbsenceMarque extends Component {
      
     constructor(props){
         super(props)
-        if(this.props.location.state == undefined){
+        if(this.props.location.state === undefined){
             this.props.history.push('/gestionnaire')
         }
         else{
-            
             this.state ={
                 Email : this.props.location.state.Email ,
                     Groupe : this.props.location.state.Groupe,
@@ -71,7 +70,7 @@ export default class AbsenceMarque extends Component {
                 let checked =  <Checkbox disabled slider /> 
                 if(this.state.Absence.length > 0){
                      this.state.Absence.map((etem) => {
-                        if(item.NumInscription == etem.Stagiaire){
+                        if(item.NumInscription === etem.Stagiaire){
                             checked = <Checkbox  disabled checked  slider />    
                         }
                     })
