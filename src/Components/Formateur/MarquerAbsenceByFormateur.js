@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
-import { Form, Table,Checkbox ,Button, Label} from 'semantic-ui-react'
-import foto9 from '../../Resources/foto9.jpg'
- class MarquerAbsence extends Component {
+import React, { Component } from 'react';
+import { Form, Table,Checkbox ,Button, Label} from 'semantic-ui-react';
+import Toast from 'light-toast';
+import foto9 from '../../Resources/foto9.jpg';
+
+
+export default class MarquerAbsenceByFormateur extends Component {
      
     constructor(props){
         super(props)
-        console.log("Constructor de marquer absence");
         if(this.props.location.state === undefined){
-            this.props.history.push('/gestionnaire')
+            this.props.history.push('/gestionnaire/recherchegroupe')
         }
         else{
             this.state ={
@@ -17,75 +19,20 @@ import foto9 from '../../Resources/foto9.jpg'
                 HeurD : this.props.location.state.HeurD,
                 HeurF : this.props.location.state.HeurF,
                 Stagiaires : this.props.location.state.Stagiaires,
-                HashG : this.props.location.state.HashG,
-                HashF : this.props.location.state.HashF,
                 SELECTEDSTG : [],
              }
-            console.log(this.state.Email);
-            console.log(this.state.Date);
-            console.log(this.state.HeurD);
-            console.log(this.state.HeurF);
         }
          this.handleChangeSliderStagiaires = this.handleChangeSliderStagiaires.bind(this);
          this.handleClickBtnMarquer = this.handleClickBtnMarquer.bind(this);
                   
     }
-    componentDidMount(){
-        console.log("salut c'est did mount de marquer absence");
-        
-        this.checkApiAbcenses();
-    }
-    checkinfos(){
-        if(this.props.location.state !== undefined){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    checkApiAbcenses = () =>{
-        console.log("checkApiAbcenses");
-        if(this.checkinfos() === true ){
-            fetch("http://localhost/backend/absences/?token="+this.state.HashG, {
-            method: 'GET',
-            redirect: 'follow'
-            })
-            .then(response => response.text())
-            .then((result) => {
-                let absences = JSON.parse(result);
-
-                if(absences.status === "OK"){
-                    console.log('voila je vais tester');
-                    
-                    absences.absences.map((item)=>{ 
-                        if( item.Formateur === this.state.Email &&
-                            item.CodeGroupe === this.state.Groupe &&
-                            item.DateAbsence === this.state.Date &&
-                            item.HeureDebut === this.state.HeurD && 
-                            item.HeureFin === this.state.HeurF){
-                                console.log("sa marche voila voila");
-                                console.log("sa marche voila voila");
-                                this.props.history.push('/gestionnaire')
-                        }
-                })
-                }else{
-                    console.log('ca marche pas');
-                }
-
-            })
-            .catch((error) => {
-                console.log('error', error)
-            });
-        }
-    }
+    
     handleChangeSliderStagiaires(event,item){
-        console.log("onhandle slider stagiaires ");
         if(item.checked === true)
             this.setState({SELECTEDSTG : [...this.state.SELECTEDSTG , document.getElementById("NumInscription"+item.id).textContent ]})
         else if(item.checked === false) this.setState({SELECTEDSTG : this.state.SELECTEDSTG.filter(items => items !== document.getElementById("NumInscription"+item.id).textContent) })
     }
     handleClickBtnMarquer(){
-        console.log('handle btn rechercher');
         if(this.state.SELECTEDSTG.toString() !== ""){
             var myHeaders = new Headers();
             var formdata = new FormData();
@@ -105,29 +52,26 @@ import foto9 from '../../Resources/foto9.jpg'
             .then(response => response.text())
             .then(result => {
                 if((JSON.parse(result)).status === "OK"){
-                    this.props.history.push({
-                        pathname:"/amarque",
-                        state:{
-                            Email : this.state.Email ,
-                            Groupe : this.state.Groupe,
-                            Date : this.state.Date,
-                            HeurD : this.state.HeurD,
-                            HeurF : this.state.HeurF,
-                            HashG : this.state.HashG,
-                            HashF : this.state.HashF,
-                            Stagiaires : this.state.Stagiaires,
-                            
-                         }//te doit filtrer ces absence pour group et formateur
-                       })
+                    Toast.success("Absence marqué avec succés", 1500, () => {
+                        this.props.history.push("/formateur")
+                    })
+                }else {
+                    Toast.fail("Erreur a l'heure du marquer l'absence ", 2000, () => {})
                 }
             })
             .catch(error => console.log('error', error));
         }
     }
 
+    checkinfos(){
+        if(this.props.location.state !== undefined){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     bodyFunc(){
-        console.log("body function");
-        
         if(this.checkinfos() === true){
             if(this.state.Stagiaires === "undefined" || this.state.Stagiaires === undefined ||  this.state.Stagiaires === 0)
             {
@@ -137,7 +81,7 @@ import foto9 from '../../Resources/foto9.jpg'
                 return this.state.Stagiaires.map((item , i) => {
                     return (
                     <Table.Row key={i}>
-                        <Table.Cell textAlign='center' >
+                        <Table.Cell textAlign='center'  >
                             <Checkbox onChange={this.handleChangeSliderStagiaires} slider id={i+""}/>
                         </Table.Cell>
                         <Table.Cell textAlign='center'>{item.Nom}</Table.Cell>
@@ -196,5 +140,3 @@ import foto9 from '../../Resources/foto9.jpg'
         )
     }
 }
-
-export default MarquerAbsence;

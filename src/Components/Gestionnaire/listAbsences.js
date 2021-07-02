@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Form, Table,Checkbox , Label} from 'semantic-ui-react'
 import foto9 from '../../Resources/foto9.jpg'
+
+
 export default class AbsenceMarque extends Component {
      
     constructor(props){
@@ -69,7 +71,7 @@ export default class AbsenceMarque extends Component {
             return this.state.Stagiaires.map((item , i)=> {
                 let checked =  <Checkbox disabled slider /> 
                 if(this.state.Absence.length > 0){
-                     this.state.Absence.map((etem) => {
+                     this.state.Absence.map(etem => {
                         if(item.NumInscription === etem.Stagiaire){
                             checked = <Checkbox  disabled checked  slider />    
                         }
@@ -94,7 +96,7 @@ export default class AbsenceMarque extends Component {
                         backgroundSize: "cover" ,
                         backgroundRepeat: "no-repeat",
                         fontFamily: "'Numans', sans-serif",}} 
-                        className="pt-5 pb-5 " >
+                        className="pt-5 pb-5" >
             <Form className="container">
                 <Table compact celled definition>
                     <Table.Header>

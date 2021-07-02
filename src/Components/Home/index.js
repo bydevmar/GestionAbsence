@@ -1,15 +1,11 @@
-import React, { Component } from 'react'
-import { Container } from '@material-ui/core'
-import Carousel from 'react-bootstrap/Carousel'
-import foto5 from "./foto5.jpg"
-import foto6 from "./foto6.jpg"
-import foto7 from "./foto7.jpg"
-
+import React, { Component } from 'react';
+import { Container } from '@material-ui/core';
+import Carousel from 'react-bootstrap/Carousel';
+import foto5 from "./foto5.jpg";
+import foto6 from "./foto6.jpg";
+import foto7 from "./foto7.jpg";
 
 export default class Home extends Component {
-    constructor(props){
-        super(props)
-    }
     render() {
         return (
             <div>

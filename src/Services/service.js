@@ -8,7 +8,6 @@ app.use(bodyParser.json({type:'application/json'}));
 app.use(bodyParser.urlencoded({extended : true}));
 
 let con = mysql.createConnection({
-
     host : 'localhost',
     port : '80',
     user : 'root' ,
